@@ -1,6 +1,9 @@
 <div class="contents row">
   <% @entries.each do |entry| %>
-    <div class="content_post" style="background-image: url(<%= entry.photo %>);">
+    <div class="content_post">
+      <% if entry.photo.attached? %>
+        <%= image_tag entry.photo, class: 'message-image' if entry.photo.attached? %>
+      <% end %>
       <p><%= entry.text %></p>
       <span class="name">
         <%= entry.title %>

@@ -9,7 +9,12 @@ class EntriesController < ApplicationController
     end
 
     def create
-      Entry.create(entry_params)
+      @entry = Entry.new(entry_params)
+      if @entry.save
+        redirect_to root_path, notice: '記録が正常に保存されました。'
+      else
+        render :new
+      end
     end
   
     private
