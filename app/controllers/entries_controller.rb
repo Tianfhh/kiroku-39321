@@ -8,5 +8,13 @@ class EntriesController < ApplicationController
       @entry = Entry.new
     end
 
+    def create
+      Entry.create(entry_params)
+    end
+  
+    private
+    def entry_params
+      params.require(:entry).permit(:title, :photo, :text)
+    end
 
 end
