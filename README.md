@@ -27,9 +27,9 @@
   
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| photo   | string     | null: false                    |
-| title   | integer    | null: false                    |
-| text    | integer    | null: false                    |
+| photo   | text       | null: false                    |
+| title   | string     | null: false                    |
+| text    | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
 
 
@@ -42,12 +42,12 @@
 
 ## followersテーブル
   
-| Column    | Type    | Options      |
-| --------- | ------- | ------------ |
-| id        | integer | null: false  |
-| name      | integer | null: false  |
-| email     | integer | null: false  |
-| password  | integer | null: false  |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| id        | references | null: false, foreign_key: true |
+| name      | references | null: false, foreign_key: true |
+| email     | references | null: false, foreign_key: true |
+| password  | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -56,12 +56,12 @@
 
 ## followingsテーブル
   
-| Column    | Type     | Options      |
-| --------- | -------- | ------------ |
-| id        | integer  | null: false  |
-| name      | integer  | null: false  |
-| email     | integer  | null: false  |
-| password  | integer  | null: false  |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| id        | references | null: false, foreign_key: true |
+| name      | references | null: false, foreign_key: true |
+| email     | references | null: false, foreign_key: true |
+| password  | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -70,11 +70,11 @@
 
 ## relationshipsテーブル
   
-| Column        | Type     | Options      |
-| ------------- | -------- | ------------ |
-| id            | integer  | null: false  |
-| following_id  | integer  | null: false  |
-| follower_id   | integer  | null: false  |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| id            | references | null: false, foreign_key: true |
+| following_id  | references | null: false, foreign_key: true |
+| follower_id   | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -85,10 +85,10 @@
 
 ## likesテーブル
   
-| Column   | Type     | Options                         |
-| -------- | -------- | ------------------------------- |
-| like_id  | integer  | null: false, foreign_key: true  |
-| user_id  | integer  | null: false, foreign_key: true  |
+| Column   | Type     | Options                          |
+| -------- | -------- | -------------------------------- |
+| like_id  | references | null: false, foreign_key: true |
+| user_id  | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -101,11 +101,11 @@
 
 ## commentsテーブル
   
-| Column    | Type     | Options      |
-| --------- | -------- | ------------ |
-| text      | integer  | null: false  |
-| user_id   | integer  | null: false  |
-| entry_id  | integer  | null: false  |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| text      | text       | null: false                    |
+| user_id   | references | null: false, foreign_key: true |
+| entry_id  | references | null: false, foreign_key: true |
 
 
 ### Association
