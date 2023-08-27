@@ -2,8 +2,29 @@
   <div class="container">
     <h3>記録の情報を入力</h3>
     <%= form_with(model: @entry, local: true) do |form| %>
-      <%= form.text_field :title, placeholder: "title" %>
-      <%= form.text_field :photo, placeholder: "Photo Url" %>
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        商品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= form.file_field :photo %>
+      </div>
+    </div>
+
+
+      <div class="new-items">
+       <div class="weight-bold-text">
+         タイトル
+        <span class="indispensable">必須</span>
+       </div>
+       <%= form.text_area :title, placeholder: "title" %>
+      </div>
+     
       <%= form.text_area :text, placeholder: "text", rows: "10" %>
       <%= form.submit "SEND" %>
     <% end %>
